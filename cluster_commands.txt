@@ -1,0 +1,57 @@
+# A list of some useful SLURM commands when on the cluster:
+
+1: SLURM account
+type >> sacct
+
+Description: 
+Gives a listing of the jobs you have submitted to the scheduler, or are running, as
+of 12 AM (midnight) of the current day. Displays the JobID, stats (PENDING, RUNNING
+or COMPLETED), and some other details.
+
+2: Your SLURM queue
+type >> squeue -u #USERNAME
+
+Description:
+Similar to sacct, but will give current runtime and additional details of each of your
+jobs on the cluster. If you do not pass the -u (username) optional command, this will
+give a list of ALL jobs running or pending on the cluster!
+
+3: SLURM cancel
+type >> scancel #JOBID
+type >> scancel -u #USERNAME
+
+Description:
+Used to cancel a job before it completes, the first cancels a specific job if you have
+the JobID, the second (with the optional -u command) cancels all jobs you have running
+on the cluster.
+
+4: Get full job details
+type >> scontrol show job #JOBID
+
+Description:
+Gives a complete listing of all SLURM metadata associated with a pending or running job
+Note that you can use this command on any job, not just your own!
+
+# For programming environments
+
+5: Get currently loaded modules
+type >> module list
+
+Description:
+This lists all modules currently loaded in your working environment on the cluster. This 
+is very useful when compiling or debugging programs, as having different modules (libraries)
+loaded between different usages of the same application will cause unexpected behavior.
+
+6: Search for modules
+type >> module avail #SEARCHTERM
+
+Description:
+Gives a list of all available modules that match a given search term, such as module avail python.
+Note that some moduels have multiple versions, in the format NAME/VERSION.NUMBER.
+
+7: Load a module
+type >> module load #MODULENAME
+
+Description:
+Loads a module by name. For modules with multiple versions, providing just the name of the module
+will load whatever is the default version on the cluster (sometimes not the most recent!)
