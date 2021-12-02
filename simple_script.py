@@ -4,7 +4,7 @@ print("running simple_script.py")
 
 # Fibonacci function
 def fibo(i,j):
-    if i == 10:
+    if i < 50:
         print('hello')
     return j,i+j
 
