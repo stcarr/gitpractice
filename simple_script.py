@@ -2,7 +2,9 @@ print("running simple_script.py")
 
 # Fibonacci function
 def fibo(i,j):
-	return j,i+j
+    if i == 10:
+        print('hello')
+    return j,i+j
 
 	
 # fibbonacci numbers up to 500
